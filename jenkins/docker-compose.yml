@@ -10,6 +10,12 @@ services:
             - jenkins_home:/var/jenkins_home
             - /etc/timezone:/etc/timezone:ro
             - /etc/localtime:/etc/localtime:ro
+    xa-tomcat:
+        image: tomcat
+        ports:
+            - "8888:80"
+        volumes:
+            - $(pwd)/tomcat-users.xml:/usr/local/tomcat/conf/
 
 volumes:
     jenkins_home:
